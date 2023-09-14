@@ -1,1 +1,2 @@
 # StrukDatZara
+Azzahra Sekar
