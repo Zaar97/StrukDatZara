@@ -8,7 +8,7 @@ struct mahasiswa{
 	string nama;
 	string nrp;
 	int umur;
-	string jenis_kelamin;
+	bool jenis_kelamin;
 };
 
 
@@ -19,7 +19,7 @@ int main(){
 	struct mahasiswa mhs[10];
 	int input_user;
 	int n = 1;
-    	int jumlah = 0;
+    int jumlah = 0;
     
     while (n == 1) {
 	
@@ -36,89 +36,89 @@ int main(){
 	
 	switch(input_user) {
 		case 1:
-           	cout << "-- Data Mahasiswa --" << endl;
+            cout << "---- Daftar Mahasiswa ----" << endl;
             
-            		for (int i = 0; i < jumlah; i++) {
+            for (int i = 0; i < jumlah; i++) {
         		cout << "Data ke-" << i + 1 << ":" << endl;
         		cout << "Nama: " << mhs[i].nama << endl;
-                	cout << "NRP : " << mhs[i].nrp << endl;
-                	cout << "Umur : " << mhs[i].umur << endl;
-                	cout << "Jenis Kelamin : " << mhs[i].jenis_kelamin << endl;
+                cout << "NRP : " << mhs[i].nrp << endl;
+                cout << "Umur : " << mhs[i].umur << endl;
+                cout << "Jenis Kelamin : " << (mhs[i].jenis_kelamin ? "Laki-laki" : "Perempuan") << endl;
             }
-            	cout << endl;
-            	break;			
+            cout << endl;
+            break;			
 			
 		case 2:
-			cout << "Data ke-" << i + 1 << ":" << endl;
-			cout << "Nama: ";
-            		cin.ignore(); 
-            		getline(cin, mhs[jumlah].nama); 
-            		cout << "NRP : ";
-            		cin >> mhs[jumlah].nrp;
-            		cout << "Umur : ";
-            		cin >> mhs[jumlah].umur;
-            		cout << "Jenis Kelamin: ";
-            		cin >> mhs[jumlah].jenis_kelamin;
-            		cout << endl;
-            		jumlah++;
-            		cout << "Data berhasil ditambahkan! >_<" << endl;
-            	cout << endl;
-            	break;
+			cout << "Nama mahasiswa ke-" << jumlah + 1 << " : ";
+            cin.ignore(); 
+            getline(cin, mhs[jumlah].nama); 
+            cout << "NRP : ";
+            cin >> mhs[jumlah].nrp;
+            cout << "Umur : ";
+            cin >> mhs[jumlah].umur;
+            cout << "Jenis Kelamin (0 = Perempuan / 1 = Laki-laki): ";
+            cin >> mhs[jumlah].jenis_kelamin;
+            cout << endl;
+            jumlah++;
+            cout << "Data berhasil ditambahkan! >_<" << endl;
+            cout << endl;
+            break;
 
 
 		case 3:
-           	int index;
-            	cout << "Masukkan index mahasiswa yang ingin dihapus: ";
-            	cin >> index;
+            int index;
+            cout << "Masukkan index mahasiswa yang ingin dihapus: ";
+            cin >> index;
         
-            		if (index >= 1 && index <= jumlah) {
-                	for (int i = index - 1; i < jumlah - 1; i++) {
-                   	mhs[i] = mhs[i + 1];
+            if (index >= 1 && index <= jumlah) {
+                for (int i = index - 1; i < jumlah - 1; i++) {
+                    mhs[i] = mhs[i + 1];
                 }
-                	jumlah--;
+                jumlah--;
                 
-            		cout << "Indeks berhasil dihapus :)" << endl;
+            cout << "Indeks berhasil dihapus :)" << endl;
             
-            		} else {
-                	cout << "Indeks tidak valid" << endl;
-           		}
-            	cout << endl;
-            	break;	
+            } else {
+                cout << "Indeks tidak valid." << endl;
+            }
+            cout << endl;
+            break;	
             
 		case 4:
-		int ubah;
+			int ubah;
 			
-            	cout << "Masukkan indeks mahasiswa yang ingin diubah: ";
-            	cin >> ubah;
+            cout << "Masukkan indeks mahasiswa yang ingin diubah: ";
+            cin >> ubah;
         
-            		if (ubah >= 1 && ubah <= jumlah) {
-                	cout << "Nama mahasiswa ke-" << ubah << " : ";    
-                	cin >> mhs[ubah - 1].nama;
-                	cout << "NRP : ";
-                	cin >> mhs[ubah - 1].nrp;
-                	cout << "Umur : ";
-                	cin >> mhs[ubah - 1].umur;
-                	cout << "Jenis Kelamin: ";
-                	cin >> mhs[ubah - 1].jenis_kelamin;
-                	cout << endl;
-                	cout << "Data berhasil diubah >o<" << endl;
-				
-            		} else {
-               		cout << "Indeks tidak valid" << endl;
-            		}
-            	cout << endl;
-            	break;
+            if (ubah >= 1 && ubah <= jumlah) {
+                cout << "Nama mahasiswa ke-" << ubah << " : ";    
+                cin >> mhs[ubah - 1].nama;
+                cout << "NRP : ";
+                cin >> mhs[ubah - 1].nrp;
+                cout << "Umur : ";
+                cin >> mhs[ubah - 1].umur;
+                cout << "Jenis Kelamin (0 = Perempuan / 1 = Laki-laki): ";
+                cin >> mhs[ubah - 1].jenis_kelamin;
+                cout << endl;
+                cout << "Data berhasil diubah >o<" << endl;
+            } else {
+                cout << "Indeks tidak valid." << endl;
+            }
+            cout << endl;
+            break;
             
-       		case 5:
+        case 5:
         	n = 0;
         	
-            	cout << "Terima kasih >_<" << endl;
-            	break;
-        	default:
-            	cout << "Input tidak valid. Silahkan coba lagi TT " << endl;
+            cout << "Terima kasih telah menggunakan program ini >_<" << endl;
+            break;
+            
+        default:
+            cout << "Input tidak valid. Silahkan coba lagi. " << endl;
             
 		}
-	}	
-return 0;
+	}
+
+	return 0;
 }
 
